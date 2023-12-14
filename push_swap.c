@@ -6,41 +6,104 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2023/11/25 19:28:30 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/12/14 20:51:36 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_arg(char **arg);
-long	ft_atol(const char *c_ptr);
-t_stack_ps	*ft_lstnew_ps(int content);
-void	ft_lstadd_back_ps(t_stack_ps **lst, t_stack_ps *new);
+int			check_arg(char **arg);
+long		ft_atol(const char *c_ptr);
+void		ft_lstadd_back_ps(t_stack_ps **lst, t_stack_ps *new);
+t_stack_ps	*ft_new_node(int content);
+void		print_list(t_stack_ps *stack);
+void		free_list(t_stack_ps *stack);
 
 int	main(int argc, char **argv)
 {
-	int		count;
-	long	temp;
+	int			count;
+	long		temp;
 	t_stack_ps	*stack_a;
+	t_stack_ps	*check_node;
 
-	count = 0;
+	stack_a = NULL;
+	count = 1;
 	if (check_arg(argv) == 1)
 	{
-		ft_printf("error\n");
+		ft_printf("Error\n");
 		return (1);
 	}
-	temp = atol (argv[count]);
-	if (temp < INT_MIN || temp > INT_MAX)
+	while (argv[count] != NULL)
+	{	
+		temp = atol (argv[count]);
+		if (temp < INT_MIN || temp > INT_MAX)
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		count++;
+	}
+	count = 1;
+	while (argv[count] != NULL)
 	{
-		ft_printf("error\n");
-		return (1);
+		check_node = ft_new_node(atol (argv[count]));
+		if (check_node == NULL)
+		{
+			free_list (stack_a);
+			return (1);
+		}
+		ft_lstadd_back_ps(&stack_a, check_node);
+		count++;
 	}
-	// ft_lstnew_ps((int)argv[count]);
-	// ft_lstadd_back_ps
+	print_list(stack_a);
 	return (0);
 }
 
-t_stack_ps	*ft_lstnew_ps(int content)
+// int	test_duplicated(char **argv)
+// {
+// 	int	i;
+// 	int	counter;
+
+// 	i = 0;
+// 	while (argv[i])
+// 	{
+// 		counter = 0;
+// 		while (argv[counter])
+// 		{
+// 			if (counter != i)
+// 			{
+// 				if (ft_str_is_equal(argv[i], argv[counter]))
+// 					return (-1);
+// 			}
+// 			counter++;
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
+void	free_list(t_stack_ps *stack)
+{
+	t_stack_ps	*temp;
+
+	while (stack)
+	{
+		temp = stack->next;
+		free (stack);
+		stack = temp;
+	}
+}
+
+void	print_list(t_stack_ps *stack)
+{
+	while (stack)
+	{
+		printf("%i, ", stack->content);
+		stack = stack->next;
+	}
+}
+
+t_stack_ps	*ft_new_node(int content)
 {
 	t_stack_ps	*new;
 
@@ -72,10 +135,10 @@ int	check_arg(char **arg)
 	int	count;
 	int	line;
 
-	count = 0;
-	line = 0;
+	line = 1;
 	while (arg[line])
 	{
+		count = 0;
 		if (arg[line][0] == '-')
 			count++;
 		while (arg[line][count])
@@ -121,5 +184,5 @@ long	ft_atol(const char *c_ptr)
 
 void	return_error(void)
 {
-	ft_printf("error\n");
+	ft_printf("Error\n");
 }

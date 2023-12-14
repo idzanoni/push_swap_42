@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:04:28 by izanoni           #+#    #+#             */
-/*   Updated: 2023/11/25 19:21:54 by izanoni          ###   ########.fr       */
+/*   Updated: 2023/12/12 16:50:01 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 typedef struct s_stack_ps
 {
-	int				content;
+	int					content;
 	struct s_stack_ps	*next;
 }					t_stack_ps;
 
