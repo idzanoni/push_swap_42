@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:04:28 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/04 20:02:15 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/05 20:04:33 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ void		move_push_to_a(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		move_push_to_b(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		make_pa(t_stack_ps **stack_a, t_stack_ps **stack_b);
 void		make_pb(t_stack_ps **stack_a, t_stack_ps **stack_b);
+int			is_sorted(t_stack_ps *stack);
 
 #endif

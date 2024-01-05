@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:34 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/05 19:40:45 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int argc, char **argv)
 	int			count;
 	long		temp;
 	t_stack_ps	*stack_a;
-	t_stack_ps	*check_node;
 
 	stack_a = NULL;
 	count = 1;
@@ -36,19 +35,28 @@ int	main(int argc, char **argv)
 		}
 		count++;
 	}
+	initialize_stack(argv, stack_a);
+	print_list(stack_a);
+	return (0);
+}
+
+int	initialize_stack(char **argv, t_stack_ps **stack)
+{
+	int			count;
+	t_stack_ps	*check_node;
+
 	count = 1;
 	while (argv[count] != NULL)
 	{
 		check_node = ft_new_node(atol (argv[count]));
 		if (check_node == NULL)
 		{
-			free_list (stack_a);
+			free_list (*stack);
 			return (1);
 		}
-		ft_lstadd_back_ps(&stack_a, check_node);
+		ft_lstadd_back_ps(stack, check_node);
 		count++;
 	}
-	print_list(stack_a);
 	return (0);
 }
 
