@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 20:03:17 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/05 20:36:36 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/09 19:47:39 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,48 +31,48 @@ void	sort_3(t_stack_ps **stack)
 		return ;
 	highest = find_highest(*stack);
 	if ((*stack)->content == highest)
-		do_ra(stack);
+		make_ra(stack);
 	else if ((*stack)->next->content == highest)
-		do_rra(stack);
+		make_rra(stack);
 	if ((*stack)->content > (*stack)->next->content)
-		do_sa(stack);
+		make_sa(stack);
 }
 
 int	find_highest(t_stack_ps *stack)
 {
-	int		high;
+	int		highest;
 
-	high = stack->content;
+	highest = stack->content;
 	while (stack)
 	{
-		if (stack->content > high)
-			high = stack->content;
+		if (stack->content > highest)
+			highest = stack->content;
 		stack = stack->next;
 	}
-	return (high);
+	return (highest);
 }
 
 int	find_smallest(t_stack_ps *stack)
 {
-	int		small;
+	int		smallest;
 
-	small = stack->content;
+	smallest = stack->content;
 	while (stack)
 	{
-		if (stack->content < small)
-			small = stack->content;
+		if (stack->content < smallest)
+			smallest = stack->content;
 		stack = stack->next;
 	}
-	return (small);
+	return (smallest);
 }
 
 void	sort_5(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	if (is_sorted(*stack_a))
 		return ;
-	find_smallest(*stack_a);
+	move_to_top(find_smallest(*stack_a), stack_a);
 	move_push_to_b(stack_a, stack_b);
-	find_smallest(*stack_a);
+	move_to_top(find_smallest(*stack_a), stack_a);
 	move_push_to_b(stack_a, stack_b);
 	sort_3(*stack_a);
 	move_push_to_a(stack_a, stack_b);

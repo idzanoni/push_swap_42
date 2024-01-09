@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moves.c                                            :+:      :+:    :+:   */
+/*   move_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 18:35:05 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/04 19:44:02 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/09 20:00:45 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,10 @@ void	make_pb(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	move_push_to_b(stack_a, stack_b);
 	ft_printf("pb\n");
+}
+
+void	move_to_top(int smallest, t_stack_ps **stack)
+{
+	while ((*stack)->content != smallest)
+		make_ra(stack);
 }

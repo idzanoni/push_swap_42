@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/05 19:40:45 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/09 20:42:05 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ int	main(int argc, char **argv)
 	int			count;
 	long		temp;
 	t_stack_ps	*stack_a;
+	t_stack_ps	*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	count = 1;
+	if (argc == 1)
+		return (0);
 	if (check_arg(argv) == 1)
 	{
 		ft_printf("Error\n");
@@ -35,8 +39,18 @@ int	main(int argc, char **argv)
 		}
 		count++;
 	}
-	initialize_stack(argv, stack_a);
+	if (initialize_stack(argv, &stack_a) || test_duplicated(stack_a) == 1)
+	{
+		ft_printf("Error\n");
+		return (1);
+	}				
 	print_list(stack_a);
+	if (argc <= 4)
+		sort_3(&stack_a);
+	else if (argc <= 6)
+		sort_5(&stack_a, &stack_b);
+	print_list(stack_a);
+	free_list (&stack_a);
 	return (0);
 }
 
@@ -81,7 +95,8 @@ void	print_list(t_stack_ps *stack)
 {
 	while (stack)
 	{
-		printf("%i, ", stack->content);
+		printf("%i ", stack->content);
 		stack = stack->next;
 	}
+	printf("\n");
 }

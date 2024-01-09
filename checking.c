@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:33:57 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/05 15:38:25 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/09 18:46:11 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	test_duplicated(t_stack_ps *stack_a)
 			if (compared->content == comper->content)
 			{
 				free_list(stack_a);
-				return (-1);
+				return (1);
 			}
 			comper = comper->next;
 		}
