@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 20:03:17 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/09 19:47:39 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/10 16:01:58 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	sort_5(t_stack_ps **stack_a, t_stack_ps **stack_b)
 	if (is_sorted(*stack_a))
 		return ;
 	move_to_top(find_smallest(*stack_a), stack_a);
-	move_push_to_b(stack_a, stack_b);
+	make_pb(stack_a, stack_b);
 	move_to_top(find_smallest(*stack_a), stack_a);
-	move_push_to_b(stack_a, stack_b);
-	sort_3(*stack_a);
-	move_push_to_a(stack_a, stack_b);
-	move_push_to_a(stack_a, stack_b);
+	make_pb(stack_a, stack_b);
+	sort_3(stack_a);
+	make_pa(stack_a, stack_b);
+	make_pa(stack_a, stack_b);
 }

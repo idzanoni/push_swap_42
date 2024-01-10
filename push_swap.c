@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/09 20:42:05 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/10 15:50:24 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	else if (argc <= 6)
 		sort_5(&stack_a, &stack_b);
 	print_list(stack_a);
-	free_list (&stack_a);
+	free_list (stack_a);
 	return (0);
 }
 

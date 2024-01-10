@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:33:57 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/09 18:46:11 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/10 18:33:24 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,25 @@ int	test_duplicated(t_stack_ps *stack_a)
 			comper = comper->next;
 		}
 		compared = compared->next;
+	}
+	return (0);
+}
+
+void	set_index(t_stack_ps *stack)
+{
+	int			index;
+
+	index = 0;
+	while ()
+	{
+		while ()
+		{
+			if ( < )
+			{
+				index++;
+			}
+			stack = stack->next;
+		}
 	}
 	return (0);
 }
