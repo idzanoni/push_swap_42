@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:33:57 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/10 18:33:24 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/10 19:07:36 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,21 @@ int	test_duplicated(t_stack_ps *stack_a)
 
 void	set_index(t_stack_ps *stack)
 {
-	int			index;
+	t_stack_ps	*comper;
+	t_stack_ps	*compared;
 
-	index = 0;
-	while ()
+	comper = stack;
+	while (comper != NULL)
 	{
-		while ()
+		compared = stack;
+		while (compared != NULL)
 		{
-			if ( < )
+			if (comper->content > compared->content)
 			{
-				index++;
+				(comper)->index++;
 			}
-			stack = stack->next;
+			compared = compared->next;
 		}
+		comper = comper->next;
 	}
-	return (0);
 }
