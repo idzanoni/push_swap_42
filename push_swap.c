@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/10 15:50:24 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/11 16:26:15 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	}
 	while (argv[count] != NULL)
 	{	
-		temp = atol (argv[count]);
+		temp = ft_atol (argv[count]);
 		if (temp < INT_MIN || temp > INT_MAX)
 		{
 			ft_printf("Error\n");
@@ -44,12 +44,15 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}				
-	print_list(stack_a);
 	if (argc <= 4)
 		sort_3(&stack_a);
 	else if (argc <= 6)
 		sort_5(&stack_a, &stack_b);
-	print_list(stack_a);
+	else
+	{
+		set_index(stack_a);
+		radix(&stack_a, &stack_b, (argc - 1));
+	}
 	free_list (stack_a);
 	return (0);
 }
@@ -74,10 +77,10 @@ int	initialize_stack(char **argv, t_stack_ps **stack)
 	return (0);
 }
 
-int	checking(void)
-{
-	int	i;
-}
+// int	checking(void)
+// {
+// 	int	i;
+// }
 
 void	free_list(t_stack_ps *stack)
 {
@@ -91,12 +94,12 @@ void	free_list(t_stack_ps *stack)
 	}
 }
 
-void	print_list(t_stack_ps *stack)
-{
-	while (stack)
-	{
-		printf("%i ", stack->content);
-		stack = stack->next;
-	}
-	printf("\n");
-}
+// void	print_list(t_stack_ps *stack)
+// {
+// 	while (stack)
+// 	{
+// 		printf("%i ", stack->content);
+// 		stack = stack->next;
+// 	}
+// 	printf("\n");
+// }

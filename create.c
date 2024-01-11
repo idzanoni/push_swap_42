@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:37:18 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/05 15:37:38 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/11 16:31:19 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack_ps	*ft_new_node(int content)
 	if (!new)
 		return (NULL);
 	new -> content = content;
+	new -> index = 0;
 	new -> next = NULL;
 	return (new);
 }
@@ -37,6 +38,17 @@ void	ft_lstadd_back_ps(t_stack_ps **lst, t_stack_ps *new)
 	}
 	last = ft_lstlast(*lst);
 	last->next = new;
+}
+
+t_stack_ps	*ft_lstlast(t_stack_ps *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
 
 long	ft_atol(const char *c_ptr)
