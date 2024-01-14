@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:33:57 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/10 19:07:36 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 15:52:47 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	check_arg(char **arg)
 		count = 0;
 		if (arg[line][0] == '-')
 			count++;
+		if (arg[line][0] == '\0')
+			return (1);
 		while (arg[line][count])
 		{
 			if (arg[line][count] >= '0' && arg[line][count] <= '9')
 				count++;
 			else
-			{
 				return (1);
-			}
 		}
 		line++;
 	}

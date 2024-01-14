@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:33:05 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/04 19:49:04 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 17:03:40 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ void	move_rotate(t_stack_ps **stack)
 void	make_ra(t_stack_ps **stack)
 {
 	move_rotate(stack);
-	ft_printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	make_rb(t_stack_ps **stack)
 {
 	move_rotate(stack);
-	ft_printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	make_rr(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	move_rotate(stack_a);
 	move_rotate(stack_b);
-	ft_printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
 t_stack_ps	*last_node(t_stack_ps *stack)

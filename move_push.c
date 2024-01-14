@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 18:35:05 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/10 16:19:35 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 17:04:37 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	move_push_to_b(t_stack_ps **stack_a, t_stack_ps **stack_b)
 void	make_pa(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	move_push_to_a(stack_a, stack_b);
-	ft_printf("pa\n");
+	write(1, "pa\n", 3);
 }
 
 void	make_pb(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	move_push_to_b(stack_a, stack_b);
-	ft_printf("pb\n");
+	write(1, "pb\n", 3);
 }
 
 void	move_to_top(int smallest, t_stack_ps **stack)

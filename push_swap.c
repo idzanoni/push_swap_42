@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:25:32 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/11 19:09:03 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 17:01:03 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (checking(argv, &stack_a) == 1)
 	{
-		ft_printf("Error\n");
+		write (2, "Error\n", 6);
 		return (1);
 	}				
 	if (argc <= 4)

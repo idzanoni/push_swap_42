@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 19:33:00 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/04 19:38:22 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 17:02:35 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ void	move_swap(t_stack_ps **stack)
 void	make_sa(t_stack_ps **stack)
 {
 	move_swap(stack);
-	ft_printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	make_sb(t_stack_ps **stack)
 {
 	move_swap(stack);
-	ft_printf("sb\n");
+	write(1, "sb\n", 3);
 }
 
 void	make_ss(t_stack_ps **stack_a, t_stack_ps **stack_b)
 {
 	move_swap(stack_a);
 	move_swap(stack_b);
-	ft_printf("ss\n");
+	write(1, "ss\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: izanoni <izanoni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:40:27 by izanoni           #+#    #+#             */
-/*   Updated: 2024/01/11 16:22:59 by izanoni          ###   ########.fr       */
+/*   Updated: 2024/01/12 15:08:25 by izanoni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	radix(t_stack_ps **stack_a, t_stack_ps **stack_b, int size_stack)
 	int	bit_shift;
 	int	count;
 
+	if (is_sorted(*stack_a))
+		return ;
 	digits = count_digits (size_stack - 1);
 	bit_shift = 0;
 	while (bit_shift < digits)
@@ -49,4 +51,3 @@ void	radix(t_stack_ps **stack_a, t_stack_ps **stack_b, int size_stack)
 		bit_shift++;
 	}
 }
-// size_stack = argc - 1
